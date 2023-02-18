@@ -1,6 +1,7 @@
 require "date"
 require_relative "list_events"
 require_relative "delete_events"
+require_relative "create_event"
 
 # DATA
 id = 0
@@ -48,7 +49,7 @@ while action != "exit"
   when "list"
     list_events(events)
   when "create"
-    puts "create"
+    create_event(events, id = id.next)
   when "show"
     puts "show"
   when "update"
