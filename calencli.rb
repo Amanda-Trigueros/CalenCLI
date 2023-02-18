@@ -1,5 +1,6 @@
 require "date"
 require_relative "list_events"
+require_relative "delete_events"
 
 # DATA
 id = 0
@@ -24,8 +25,10 @@ events = [
 
 list_events(events)
 
-loop do
+action = nil
+while action != "exit"
   action = ask_for_action_prompt
+
   case action
   when "list"
     list_events(events)
@@ -36,13 +39,14 @@ loop do
   when "update"
     puts "update"
   when "delete"
-    puts "delete"
+    ids = grab_ids
+    delete_events(ids, events)
   when "next"
     puts "next"
   when "prev"
     puts "prev"
   when "exit"
-    puts "Thanks for using calenCLI"
+    puts "Thanks for using CalenCLI"
     break
   else
     puts "Invalid action"
