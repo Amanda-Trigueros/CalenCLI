@@ -1,6 +1,3 @@
-require "date"
-require_relative "list_events"
-
 def delete_events(ids, events)
   events.delete_if do |event|
     ids.include?(event[:id])
