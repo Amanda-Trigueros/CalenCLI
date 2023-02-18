@@ -49,7 +49,7 @@ while action != "exit"
   when "list"
     list_events(events)
   when "create"
-    create_event(events, id=id.next)
+    create_event(events, id = id.next)
   when "show"
     puts "show"
   when "update"
