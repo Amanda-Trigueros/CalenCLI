@@ -2,7 +2,7 @@ require "date"
 require_relative "list_events"
 require_relative "delete_events"
 require_relative "create_event"
-require_relative "show"
+require_relative "show_event"
 require_relative "update"
 
 
@@ -56,7 +56,7 @@ while action != "exit"
   when "create"
     create_event(events, id = id.next)
   when "show"
-    search_event(events)
+    show_event(events)
   when "update"
     print "Event ID: "
     id = gets.chomp.to_i
