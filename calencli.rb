@@ -3,10 +3,7 @@ require_relative "list_events"
 require_relative "delete_events"
 require_relative "create_event"
 require_relative "show_event"
-require_relative "update"
-
-
-
+require_relative "update_event"
 
 # DATA
 id = 0

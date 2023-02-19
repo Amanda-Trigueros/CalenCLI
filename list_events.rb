@@ -11,10 +11,6 @@ def get_hours_formatted(datetime)
   DateTime.parse(datetime).strftime("%H:%M")
 end
 
-def complete_empty_days
-  # code here
-end
-
 def color_calendar(message, calendar_type)
   case calendar_type
   when "web-dev"
@@ -33,7 +29,7 @@ def ask_for_action_prompt
   puts "list | create | show | update | delete | next | prev | #{'exit'.colorize(:green)}"
   puts ""
   print "action: "
-  gets.chomp.strip
+  gets.chomp.strip.downcase
 end
 
 def order_events(events)
