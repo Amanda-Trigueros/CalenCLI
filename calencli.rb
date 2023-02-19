@@ -3,6 +3,10 @@ require_relative "list_events"
 require_relative "delete_events"
 require_relative "create_event"
 require_relative "show"
+require_relative "update"
+
+
+
 
 # DATA
 id = 0
@@ -54,12 +58,14 @@ while action != "exit"
   when "show"
     search_event(events)
   when "update"
-    puts "update"
+    print "Event ID: "
+    id = gets.chomp.to_i
+    update(events, id)
   when "delete"
     ids = grab_ids
     delete_events(ids, events)
   when "next"
-    puts "next"
+    next_week2(events)
   when "prev"
     puts "prev"
   when "exit"
