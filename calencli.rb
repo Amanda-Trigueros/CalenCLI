@@ -2,6 +2,7 @@ require "date"
 require_relative "list_events"
 require_relative "delete_events"
 require_relative "create_event"
+require_relative "show"
 
 # DATA
 id = 0
@@ -37,7 +38,7 @@ events = [
     end_date: "", notes: "", guests: [], calendar: "web-dev" }
 ]
 
-# Main program flow
+# Main program flow C:\Users\Chris\github-classroom\codeableorg\ruby-calencli-c10-w1-team2\.
 
 list_events(events)
 
@@ -51,7 +52,7 @@ while action != "exit"
   when "create"
     create_event(events, id = id.next)
   when "show"
-    puts "show"
+    search_event(events)
   when "update"
     puts "update"
   when "delete"
