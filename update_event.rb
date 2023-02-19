@@ -1,6 +1,6 @@
-require_relative "create_event"
+require_relative "helper_methods"
 
-def update(events, id)
+def get_valid_event_index(events, id)
   event_index = events.index { |event| event[:id] == id }
   while event_index.nil?
     puts "ID not found"
@@ -8,38 +8,14 @@ def update(events, id)
     id = gets.chomp.to_i
     event_index = events.index { |event| event[:id] == id }
   end
+end
 
-  print "Date (YYYY-MM-DD): "
-  date = gets.chomp
-  until valid_date?(date)
-    puts "Invalid Date"
-    print "Date (YYYY-MM-DD): "
-    date = gets.chomp
-  end
-
-  print "Title: "
-  title = gets.chomp
-  while title.empty?
-    puts "Title shouldn't be empty"
-    print "Title: "
-    title = gets.chomp
-  end
-
-  print "Calendar: "
-  calendar = gets.chomp.strip
-  until valid_calendar?(calendar)
-    puts "Valid calendars: web-dev, english, soft-skills or defeault"
-    print "Calendar: "
-    calendar = gets.chomp.strip
-  end
-
-  print "Start_End (HH:MM HH:MM): "
-  start_end = gets.chomp
-  until valid_start_end?(start_end)
-    puts "Invalid format or invalid range, format should be HH:MM HH:MM"
-    print "Start_End (HH:MM HH:MM): "
-    start_end = gets.chomp
-  end
+def update(events, id)
+  event_index = get_valid_event_index(events, id)
+  date = obtain_valid_date
+  title = obtain_valid_title
+  calendar = obtain_valid_calendar
+  start_end = obtain_valid_start_end
 
   print "Notes: "
   notes = gets.chomp
